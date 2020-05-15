@@ -6,11 +6,30 @@
 #ifndef INCLUDE_CARE_TAKER
 #define INCLUDE_CARE_TAKER
 //=====================================================================
+#include <vector>
+#include "Originator.h"
+#include "Memento.h"
+//=====================================================================
 class CareTaker
 {
 public:
-	CareTaker();
+	// コンストラクタ
+	CareTaker(Originator* originator);
+	// デストラクタ
 	~CareTaker();
+
+
+
+public:
+	void Save();
+	void PutBack(int index);
+
+
+
+private:
+	// メンバ変数
+	Originator* m_originator;
+	std::vector<Memento*> m_mementos;
 };
 
 #endif // INCLUDE_CARE_TAKER

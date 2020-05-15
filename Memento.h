@@ -6,11 +6,32 @@
 #ifndef INCLUDE_MEMENTO
 #define INCLUDE_MEMENTO
 //=====================================================================
+#include <string>
+//=====================================================================
 class Memento
 {
+	// Originatorをフレンド宣言
+	friend class Originator;
+
+
+
 public:
-	Memento();
+	// デストラクタ
 	~Memento();
+
+
+
+protected:
+	// コンストラクタ
+	Memento(const std::string& words);
+
+	const std::string& GetSnapshot();
+
+
+
+private:
+	// メンバ変数
+	std::string m_snapshot;
 };
 
 #endif // INCLUDE_MEMENTO

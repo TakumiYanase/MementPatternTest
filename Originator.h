@@ -6,11 +6,40 @@
 #ifndef INCLUDE_ORIGINATOR
 #define INCLUDE_ORIGINATOR
 //=====================================================================
+#include <iostream>
+#include <string>
+#include "Memento.h"
+//=====================================================================
 class Originator
-{
+{	
+	// CareTakerをフレンド宣言
+	friend class CareTaker;
+
+
+
 public:
+	// コンストラクタ
 	Originator();
+	// デストラクタ
 	~Originator();
+
+
+
+public:
+	void Print() const;
+	void Write(const std::string& words);
+
+
+
+protected:
+	Memento* CreateMemento();
+	void SetMemento(Memento* memento);
+
+
+
+private:
+	// メンバ変数
+	std::string m_words;
 };
 
 #endif // INCLUDE_ORIGINATOR

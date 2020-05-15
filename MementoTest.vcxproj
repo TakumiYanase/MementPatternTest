@@ -110,6 +110,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CareTaker.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Memento.cpp" />
+    <ClCompile Include="Originator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CareTaker.h" />
+    <ClInclude Include="Memento.h" />
+    <ClInclude Include="Originator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
