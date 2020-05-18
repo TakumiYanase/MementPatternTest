@@ -7,11 +7,19 @@
 #define INCLUDE_CARE_TAKER
 //=====================================================================
 #include <vector>
+#include "Console.h"
 #include "Originator.h"
 #include "Memento.h"
+#include "Singleton.h"
 //=====================================================================
 class CareTaker
 {
+public:
+	// フレンド宣言
+	friend class Singleton<CareTaker>;
+
+
+
 public:
 	// コンストラクタ
 	CareTaker(Originator* originator);
@@ -22,7 +30,7 @@ public:
 
 public:
 	void Save();
-	void PutBack(int index);
+	void PutBack(/*int index*/);
 
 
 

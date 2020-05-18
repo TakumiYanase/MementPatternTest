@@ -10,7 +10,8 @@
 //=====================================================================
 class Memento
 {
-	// Originatorをフレンド宣言
+public:
+	// フレンド宣言
 	friend class Originator;
 
 

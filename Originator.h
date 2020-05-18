@@ -9,10 +9,13 @@
 #include <iostream>
 #include <string>
 #include "Memento.h"
+#include "Singleton.h"
 //=====================================================================
 class Originator
 {	
-	// CareTakerをフレンド宣言
+public:
+	// フレンド宣言
+	friend class Singleton<Originator>;
 	friend class CareTaker;
 
 
@@ -27,7 +30,7 @@ public:
 
 public:
 	void Print() const;
-	void Write(const std::string& words);
+	void Write(/*const std::string& words*/);
 
 
 

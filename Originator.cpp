@@ -4,6 +4,13 @@
 /// Author		: Takumi Yanase
 //=====================================================================
 #include "Originator.h"
+#include "Console.h"
+//=====================================================================
+
+
+
+//=====================================================================
+// コンストラクタ
 //=====================================================================
 Originator::Originator() : m_words("")
 {
@@ -12,6 +19,9 @@ Originator::Originator() : m_words("")
 
 
 
+//=====================================================================
+// デストラクタ
+//=====================================================================
 Originator::~Originator() 
 { 
 
@@ -19,13 +29,30 @@ Originator::~Originator()
 
 
 
-void Originator::Write(const std::string& words)
+//=====================================================================
+// デストラクタ
+//=====================================================================
+void Originator::Write(/*const std::string& words*/)
 {
-	m_words += words;
+	SetTextColor(COLOR_DARK_GREEN);
+
+	std::cout << "┏ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ┓" << std::endl;
+	std::cout << "┃　文字を入力してください   ┃" << std::endl;
+	std::cout << "┗ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ┛" << std::endl;
+
+	std::string str;
+	std::cin >> str;
+	m_words += str;
+
+	// 入力待ち
+	getchar();
 }
 
 
 
+//=====================================================================
+// メメント作成
+//=====================================================================
 Memento* Originator::CreateMemento()
 {
 	return new Memento(m_words);
@@ -33,6 +60,9 @@ Memento* Originator::CreateMemento()
 
 
 
+//=====================================================================
+// メメントを設定
+//=====================================================================
 void Originator::SetMemento(Memento* memento)
 {
 	m_words = memento->GetSnapshot();
@@ -40,8 +70,17 @@ void Originator::SetMemento(Memento* memento)
 
 
 
+//=====================================================================
+// 最新のデータを表示
+//=====================================================================
 void Originator::Print() const
 {
-	std::cout << "******************" << std::endl;
+	SetTextColor(COLOR_DARK_MAGENTA);
+	std::cout << "┏ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ┓" << std::endl;
+	std::cout << "┃　最新のデータを表示       ┃" << std::endl;
+	std::cout << "┗ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ┛" << std::endl;
 	std::cout << m_words << std::endl;
+
+	// 入力待ち
+	getchar();
 }
